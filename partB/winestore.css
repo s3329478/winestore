@@ -1,7 +1,28 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
+.results
+{
+	border: 1px solid black;
+	width: 1024px;
+	border-collapse: collapse;
+	text-align: left;
+	padding: 5px;
+}
 
+.search
+{
+	width: 300px;
+	text-align: left;
+	padding: 5px;
+}
 
+.header
+{
+	
+	margin: auto;
+	text-align: left;
+}
 
-ul.nobullets {
-	list-style-type: none;
+* {
+	font-family: 'Open Sans', sans-serif;
 }
