@@ -6,7 +6,7 @@ function selectDistinct ($connection, $tableName, $attributeName, $pulldownName,
 
 	// SQL query to select distinct values
 	$distinctQuery = "SELECT DISTINCT {$attributeName} FROM
-{$tableName}";
+{$tableName} ORDER BY {$attributeName}";
 
 	// Run the distinctQuery on the databaseName
 	if (!($resultId = @ mysql_query ($distinctQuery, $connection)))
@@ -20,7 +20,7 @@ function selectDistinct ($connection, $tableName, $attributeName, $pulldownName,
 	{
 		// Change defaultValue to something else so it only runs once
 		$defaultValue = "--";
-		print "\n\t<option selected value=\"\">";
+		print "\n\t<option selected value=\"All\">All";
 	}
 	// Retrieve each row from the query
 	while ($row = @ mysql_fetch_array($resultId))
@@ -51,13 +51,18 @@ if (!mysql_select_db(DB_NAME, $connection)) {
 // Print Region title
 print "\n<tr><td>Region:</td><td>";
 // Select list of regions available to select
-selectDistinct($connection, "region", "region_name", "regionName", "All");
-// Print Variety title
+selectDistinct($connection, "region", "region_name", "region", "All");
 print "\n</td></tr>\n<tr><td>Variety:</td><td>";
 // Select list of grape varieties available to select
 selectDistinct($connection, "grape_variety", "variety", "variety");
-// Close current row
+print "\n</td></tr>\n<tr><td>Min Year:</td><td>";
+// Select year from distinct year values
+selectDistinct($connection, "wine", "year", "minYear");
+print "\n</td></tr>\n<tr><td>Max Year:</td><td>";
+// Select year again for maximum value
+selectDistinct($connection, "wine", "year", "maxYear");
 print "\n</td></tr>";
+
 ?>
 
 

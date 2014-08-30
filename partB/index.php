@@ -17,8 +17,6 @@
 				<tr><td>Wine Name:</td><td><input type="text" name="wineName" /></td></tr>
 				<tr><td>Winery Name:</td><td><input type="text" name="wineryName" /></td></tr>
 				<?php include 'select.php'; ?>
-				<tr><td>Min Year:</td><td><?php include ''; // Add this ?></td></tr>
-				<tr><td>Max Year:</td><td><?php include ''; // Add this ?></td></tr>
 				<tr><td>Min Stock:</td><td><input type="text" name="minStock" /></td></tr>
 				<tr><td>Max Stock:</td><td><input type="text" name="maxStock" /></td></tr>
 				<tr><td>Min Price:</td><td><input type="text" name="minPrice" /></td></tr>
